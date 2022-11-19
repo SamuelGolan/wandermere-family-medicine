@@ -191,7 +191,7 @@ typings/
 !.vscode/extensions.json
 
 
-
+*.sqlite3
 
 
 ### Windows template
