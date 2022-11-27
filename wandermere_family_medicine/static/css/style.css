@@ -801,7 +801,7 @@ section {
   background-size: cover;
   min-height: 500px;
 }
-
+/* 
 .about .play-btn {
   width: 94px;
   height: 94px;
@@ -873,7 +873,7 @@ section {
   -webkit-animation: none;
   animation: none;
   border-radius: 0;
-}
+} */
 
 @-webkit-keyframes pulsate-btn {
   0% {

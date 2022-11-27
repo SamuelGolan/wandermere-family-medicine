@@ -4,3 +4,7 @@ from provider.models import Provider
 
 def home_view(request):
     return render(request, 'practice_info/home.html', {'providers': Provider.objects.all})
+
+
+def about_view(request):
+    return render(request, 'practice_info/about.html', {'providers': Provider.objects.all})

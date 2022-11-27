@@ -2,7 +2,9 @@
     <ul>
         {% url 'home' as the_url %}
         <li><a class="nav-link {% if request.path == the_url %}active{% endif %}" href="{% url 'home' %}">Home</a></li>
-        <li><a class="nav-link" href="#about">About</a></li>
+        {% url 'about' as the_url %}
+        <li><a class="nav-link {% if request.path == the_url %}active{% endif %}" href="{% url 'about' %}">About</a></li>
+        <!-- <li><a class="nav-link" href="#about">About</a></li> -->
         <!-- <li><a class="nav-link" href="#services">Services</a></li>
         <li><a class="nav-link" href="#departments">Departments</a></li> -->
         {% url 'provider' name_slug as the_url %}
