@@ -11,6 +11,7 @@ class Provider(models.Model):
     firstname = models.CharField(max_length=20)
     lastname = models.CharField(max_length=30)
     degree = models.CharField(choices=Degree.choices, max_length=2)
+    title = models.CharField(max_length=100)
     email = models.EmailField(blank=True)
     bio = models.TextField(blank=True)
     name_slug = models.SlugField(max_length=50, editable=False, blank=True)
