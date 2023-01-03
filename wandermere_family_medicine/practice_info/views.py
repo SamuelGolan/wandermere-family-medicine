@@ -8,3 +8,6 @@ def home_view(request):
 
 def about_view(request):
     return render(request, 'practice_info/about.html', {'providers': Provider.objects.all})
+
+def contact_view(request):
+    return render(request, 'practice_info/contact.html', {'providers': Provider.objects.all})

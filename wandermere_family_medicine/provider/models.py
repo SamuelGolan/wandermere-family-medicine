@@ -15,6 +15,7 @@ class Provider(models.Model):
     email = models.EmailField(blank=True)
     bio = models.TextField(blank=True)
     name_slug = models.SlugField(max_length=50, editable=False, blank=True)
+    image = models.ImageField(blank=True, upload_to='profile_pics')
 
     def __str__(self):
         return f"{self.firstname} {self.lastname} {self.degree}"
