@@ -60,7 +60,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'wandermere_family_medicine.urls'
 
 STATICFILES_DIRS = [
-    '/static/'
+    'static'
 ]
 
 STATICFILES_FINDERS = [
