@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <h2 style="font-size:2em">Welcome to Wandermere Family Medicine</h2>
+      <h6>We are a Family Practice clinic focused on building relationships with our patients.</h6>
+      <a href="{% url 'contact' %}" class="btn-get-started">Get Started</a>
+    </div>
+  </section><!-- End Hero -->
+{% endblock %}

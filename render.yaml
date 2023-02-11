@@ -1,0 +1,20 @@
+databases:
+  - name: wandermere-medicine.com
+    databaseName: wandermere_medicine_db
+    user: wandermere_medicine_user
+
+services:
+  - type: web
+    name: wandermere-medicine.com
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn wandermere-family-medicine.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: wandermere_medicine_db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
