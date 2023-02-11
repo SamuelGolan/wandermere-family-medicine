@@ -22,20 +22,24 @@ class Provider(models.Model):
         return f"{self.firstname} {self.lastname} {self.degree}"
     
     def save(self, *args, **kwargs):
-        self.name_slug = slugify(f'{self.firstname} {self.lastname}', lowercase=False)
-        img = Image.open(self.image.path)
-        if img.width != img.height:
-            print(img.height, img.width)
-            if img.height > img.width:
-                print(False)
-                diff = img.height - img.width
-                img = img.crop((0, int(diff//2), img.width, int(img.height-diff//2)))
-            elif img.width > img.height:
-                print(True)
-                diff = img.width - img.height
-                img = img.crop((int(diff//2), 0, int(img.width-diff//2), img.height))
-            img.save(self.image.path)
-        if img.height > 300 or img.width > 300:
-            img.thumbnail((300, 300))
-            img.save(self.image.path)
-        super().save(*args, **kwargs)
+        print("Saving Image")
+        try:
+            self.name_slug = slugify(f'{self.firstname} {self.lastname}', lowercase=False)
+            img = Image.open(self.image.path)
+            if img.width != img.height:
+                print(img.height, img.width)
+                if img.height > img.width:
+                    print(False)
+                    diff = img.height - img.width
+                    img = img.crop((0, int(diff//2), img.width, int(img.height-diff//2)))
+                elif img.width > img.height:
+                    print(True)
+                    diff = img.width - img.height
+                    img = img.crop((int(diff//2), 0, int(img.width-diff//2), img.height))
+                img.save(self.image.path)
+            if img.height > 300 or img.width > 300:
+                img.thumbnail((300, 300))
+                img.save(self.image.path)
+            super().save(*args, **kwargs)
+        except Exception as err:
+            print(err)
