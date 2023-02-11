@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "wandermere-family-medicine"
+name = "wandermere_family_medicine"
 version = "0.1.0"
 description = ""
 authors = ["SamuelGolan <93092697+SamuelGolan@users.noreply.github.com>"]
