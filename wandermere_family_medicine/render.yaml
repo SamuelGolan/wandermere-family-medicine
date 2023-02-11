@@ -8,7 +8,7 @@ services:
     name: wandermere-medicine.com
     env: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn wandermere-family-medicine.wsgi:application"
+    startCommand: "gunicorn wandermere_family_medicine.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
