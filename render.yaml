@@ -1,6 +1,6 @@
 databases:
   - name: wandermere-medicine.com
-    databaseName: wandermere_medicine
+    databaseName: wandermere_medicine_db
     user: wandermere_medicine_user
 
 services:
@@ -12,7 +12,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: wandermere_medicine
+          name: wandermere_medicine_db
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
