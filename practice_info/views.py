@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from provider.models import Provider
 from django.http import JsonResponse
+from django.core.mail import send_mail
+
 
 from .forms import ContactForm
 
@@ -26,5 +28,5 @@ def send_contact_email(request):
     email = form['email']
     message = form['message']
     name = form['name']
-
+    send_mail(subject, message, from_email=None, recipient_list=['samuelcgolan@gmail.com',])
     return JsonResponse({'subject': subject, 'email': email, 'message': message, 'name': name})
