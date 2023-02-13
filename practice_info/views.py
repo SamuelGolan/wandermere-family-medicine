@@ -1,4 +1,5 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render
+from django.urls import reverse_lazy
 from provider.models import Provider
 from django.http import JsonResponse, HttpResponseRedirect
 
@@ -31,8 +32,9 @@ def send_contact_email(request):
     message = form['message']
     name = form['name']
     try:
-        send_mail(subject, message, from_email=None, recipient_list=['samuelcgolan@gmail.com',])
+        send_mail(subject, message, from_email=None, recipient_list=['agolan@wandemere-medicine.com',])
+        messages.add_message(messages.WARNING, "Error: There was an error sending your message.")
     except Exception as err:
         messages.add_message(messages.WARNING, "Error: There was an error sending your message.")
         print(err)
-    return HttpResponseRedirect(reverse("contact"))
+    return HttpResponseRedirect(reverse_lazy("contact"))
