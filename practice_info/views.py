@@ -32,7 +32,11 @@ def send_contact_email(request):
     message = form['message']
     name = form['name']
     try:
-        send_mail(subject, message, from_email=None, recipient_list=['agolan@wandemere-medicine.com',])
+        send_mail(
+            subject, 
+            f"Name: {name} Email: {email} Message: {message}", 
+            from_email=None, recipient_list=['agolan@wandemere-medicine.com',]
+        )
         messages.add_message(request, messages.SUCCESS, "Message sent")
     except Exception as err:
         print(err)
@@ -41,3 +45,7 @@ def send_contact_email(request):
         return HttpResponseRedirect(reverse("contact"))
     except Exception as err:
         print(err)
+
+
+def schedule(request):
+    return render(request, 'practice_info/schedule_appointment.html', {'providers': Provider.objects.all})
