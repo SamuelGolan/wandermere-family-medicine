@@ -11,11 +11,11 @@
         <li class="dropdown nav-link {% if request.path == the_url %}active{% endif %}" href="#doctors">
             <a class="nav-link">Providers<i class="bi bi-chevron-down"></i></a>
             <ul>
-                {% for provider in providers %}
+                <!-- {% for provider in providers %}
                     <li><a href="{% url 'provider' name_slug=provider.name_slug %}">
                         {{provider.firstname}} {{provider.lastname}}
                     </a></li>
-                {% endfor %}
+                {% endfor %} -->
             </ul>
         </li>
         <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
