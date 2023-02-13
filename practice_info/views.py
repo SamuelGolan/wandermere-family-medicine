@@ -28,5 +28,8 @@ def send_contact_email(request):
     email = form['email']
     message = form['message']
     name = form['name']
-    send_mail(subject, message, from_email=None, recipient_list=['samuelcgolan@gmail.com',])
+    try:
+        send_mail(subject, message, from_email=None, recipient_list=['samuelcgolan@gmail.com',])
+    except Exception as err:
+        print(err)
     return JsonResponse({'subject': subject, 'email': email, 'message': message, 'name': name})
