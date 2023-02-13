@@ -33,10 +33,10 @@ def send_contact_email(request):
     name = form['name']
     try:
         # send_mail(subject, message, from_email=None, recipient_list=['agolan@wandemere-medicine.com',])
-        messages.add_message(messages.SUCCESS, "Message sent")
+        messages.add_message(request, messages.SUCCESS, "Message sent")
     except Exception as err:
         print(err)
-        messages.add_message(messages.WARNING, "Error: There was an error sending your message.")
+        messages.add_message(request, messages.WARNING, "Error: There was an error sending your message.")
     try:
         return HttpResponseRedirect(reverse("contact"))
     except Exception as err:
