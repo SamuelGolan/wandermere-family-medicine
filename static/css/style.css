@@ -876,6 +876,17 @@ section {
   animation: none;
   border-radius: 0;
 } */
+.alert-error {
+  background-color: #d50303;
+  border-color: #690101;
+  color: #ffffff;
+}
+
+.alert-success {
+  background-color: #33c929;
+  border-color: #0a7b00;
+  color: #ffffff;
+}
 
 @-webkit-keyframes pulsate-btn {
   0% {

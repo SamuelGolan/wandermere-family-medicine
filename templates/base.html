@@ -78,6 +78,14 @@
       </div>
     </section> -->
     <!-- End Hero -->
+{% if messages %}
+  {% for message in messages %}
+    {{message}}
+    <!-- <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script> -->
+  {% endfor %}
+{% else %}
+    HELLO WORLD!
+{% endif %}
   {% block content %}
   {% endblock %}
 
