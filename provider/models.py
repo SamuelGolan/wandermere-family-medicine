@@ -16,11 +16,13 @@ class Provider(models.Model):
     email = models.EmailField(blank=True)
     bio = models.TextField(blank=True)
     name_slug = models.SlugField(max_length=50, editable=False, blank=True)
+    # TODO implement provider image
     # image = models.ImageField(upload_to='profile_pics', default='static/img/default_provider.jpg')
 
     def __str__(self):
         return f"{self.firstname} {self.lastname} {self.degree}"
     
+    # TODO implement provider image
     # def save(self, *args, **kwargs):
     #     print("Saving Image")
     #     try:
