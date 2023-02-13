@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from provider.models import Provider
 from django.http import JsonResponse, HttpResponseRedirect
 
@@ -37,4 +37,7 @@ def send_contact_email(request):
     except Exception as err:
         messages.add_message(messages.WARNING, "Error: There was an error sending your message.")
         print(err)
-    return HttpResponseRedirect(reverse_lazy("contact"))
+    try:
+        return HttpResponseRedirect(reverse("contact"))
+    except Exception as err:
+        print(err)
