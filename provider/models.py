@@ -39,6 +39,6 @@ class Provider(models.Model):
             # if img.height > 300 or img.width > 300:
             #     img.thumbnail((300, 300))
             #     img.save(self.image.path)
-            # super().save(*args, **kwargs)
+            super().save(*args, **kwargs)
         except Exception as err:
             print(err)
