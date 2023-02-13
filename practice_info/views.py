@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from provider.models import Provider
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
+
+from django.contrib import messages
 from django.core.mail import send_mail
 
 
@@ -31,5 +33,6 @@ def send_contact_email(request):
     try:
         send_mail(subject, message, from_email=None, recipient_list=['samuelcgolan@gmail.com',])
     except Exception as err:
+        messages.add_message(messages.WARNING, "Error: There was an error sending your message.")
         print(err)
-    return JsonResponse({'subject': subject, 'email': email, 'message': message, 'name': name})
+    return HttpResponseRedirect(reverse("contact"))
